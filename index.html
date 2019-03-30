@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Fitbit API</title>
 </head>
 <body>
@@ -22,5 +23,23 @@ var userId = url.split("#")[1].split("=")[2].split("&")[0];
 
 console.log(access_token);
 console.log(userId);
+
+function showStats(){
+var settings = {
+  "url": "https://api.fitbit.com/1/user/-/activities/date/2019-03-29.json?=",
+  "method": "GET",
+  "headers": {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${access_token}`
+  },
+
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+}
+
+showStats();
 </script>
 </html>
