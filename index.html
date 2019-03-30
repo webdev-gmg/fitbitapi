@@ -11,16 +11,16 @@
 </body>
 
 <script>
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
-}
+// get the url
+var url = window.location.href;
 
-var access = getUrlVars()["access_token"];
-//var mytext = getUrlVars()["text"];
-console.log(access)
+//getting the access token from url
+var access_token = url.split("#")[1].split("=")[1].split("&")[0];
+
+// get the userid
+var userId = url.split("#")[1].split("=")[2].split("&")[0];
+
+console.log(access_token);
+console.log(userId);
 </script>
 </html>
